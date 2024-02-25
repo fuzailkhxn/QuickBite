@@ -30,7 +30,7 @@ class MainScreen extends StatelessWidget {
                 child: Theme(
                     data: Theme.of(context).copyWith(canvasColor: kPrimary),
                     child: BottomNavigationBar(
-                      //showSelectedLabels: false,
+                      showSelectedLabels: false,
                       showUnselectedLabels: false,
                       unselectedIconTheme:
                           const IconThemeData(color: Colors.black38),
