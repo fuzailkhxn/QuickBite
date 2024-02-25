@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_bite/common/custom_appbar.dart';
 import 'package:quick_bite/common/custom_container.dart';
 import 'package:quick_bite/constants/constants.dart';
+import 'package:quick_bite/views/home/widgets/category_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,14 +11,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: kPrimary,
-        appBar: AppBar(
-          title: PreferredSize(
-              preferredSize: Size.fromHeight(130.h),
-              child: Container(
-                height: 130,
-              )),
-        ),
-        body: SafeArea(child: CustomContainer(containerContent: const CustomAppBar())));
+      backgroundColor: kPrimary,
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(130.h), child: const CustomAppBar()),
+      body: SafeArea(
+        child: CustomContainer(
+            containerContent: Column(
+          children: [
+            CategoryList(),
+          ],
+        )),
+      ),
+    );
   }
 }
