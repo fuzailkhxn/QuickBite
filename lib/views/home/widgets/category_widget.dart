@@ -7,6 +7,7 @@ import 'package:quick_bite/constants/constants.dart';
 import 'package:quick_bite/controllers/category_controller.dart';
 import 'package:quick_bite/views/categories/all_categories.dart';
 
+// ignore: must_be_immutable
 class CategoryWidget extends StatelessWidget {
   CategoryWidget({
     super.key,

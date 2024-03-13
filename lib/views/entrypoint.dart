@@ -8,6 +8,7 @@ import 'package:quick_bite/views/home/home_page.dart';
 import 'package:quick_bite/views/profile/profile_page.dart';
 import 'package:quick_bite/views/search/search_page.dart';
 
+// ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:quick_bite/common/custom_appbar.dart';
 import 'package:quick_bite/common/custom_container.dart';
+import 'package:quick_bite/common/heading.dart';
 import 'package:quick_bite/constants/constants.dart';
+import 'package:quick_bite/views/home/all_fastest_foods_page.dart';
+import 'package:quick_bite/views/home/all_nearby_restaurants.dart';
+import 'package:quick_bite/views/home/recommendations_page.dart';
 import 'package:quick_bite/views/home/widgets/category_list.dart';
+import 'package:quick_bite/views/home/widgets/food_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,7 +24,34 @@ class HomePage extends StatelessWidget {
         child: CustomContainer(
             containerContent: Column(
           children: [
-            CategoryList(),
+            const CategoryList(),
+            Heading(
+              text: "Nearby restaurants",
+              onTap: () {
+                Get.to(() => const AllNearbyRestaurants(),
+                    transition: Transition.cupertino,
+                    duration: const Duration(milliseconds: 900));
+              },
+            ),
+            AllNearbyRestaurants(),
+            Heading(
+              text: "Try Something New",
+              onTap: () {
+                Get.to(() => const RecommendationsPage(),
+                    transition: Transition.cupertino,
+                    duration: const Duration(milliseconds: 900));
+              },
+            ),
+            FoodsList(),
+            Heading(
+              text: "Food closer to you",
+              onTap: () {
+                Get.to(() => const AllFastestFoods(),
+                    transition: Transition.cupertino,
+                    duration: const Duration(milliseconds: 900));
+              },
+            ),
+            FoodsList(),
           ],
         )),
       ),

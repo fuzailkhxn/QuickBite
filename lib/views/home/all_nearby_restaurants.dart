@@ -5,32 +5,32 @@ import 'package:quick_bite/common/back_ground_container.dart';
 import 'package:quick_bite/common/reusable_text.dart';
 import 'package:quick_bite/constants/constants.dart';
 import 'package:quick_bite/constants/uidata.dart';
+import 'package:quick_bite/views/home/widgets/food_widget.dart';
+import 'package:quick_bite/views/home/widgets/restaurant_tile.dart';
 
-
-import 'widgets/category_tile.dart';
-
-class AllCategories extends StatelessWidget {
-  const AllCategories({super.key});
+class AllNearbyRestaurants extends StatelessWidget {
+  const AllNearbyRestaurants({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(  
       appBar: AppBar(
         elevation: 0,
         backgroundColor: kOffWhite,
         title: ReusableText(
-            text: "Categories", style: appStyle(12, kGray, FontWeight.w600)),
+            text: "Nearby Restaurants",
+            style: appStyle(13, kGray, FontWeight.w600)),
       ),
       body: BackGroundContainer(
         color: Colors.white,
-        child: Container(
-          padding: EdgeInsets.only(left: 12.w, top: 10.h),
-          height: hieght,
+        child: Padding(
+          padding: EdgeInsets.all(12.h),
           child: ListView(
-            scrollDirection: Axis.vertical,
-            children: List.generate(categories.length, (i) {
-              var category = categories[i];
-              return CategoryTile(category: category);
+            children: List.generate(restaurants.length, (i) {
+              var restaurant = restaurants[i];
+              return RestaurantTile(
+                restaurant: restaurant,
+              );
             }),
           ),
         ),
