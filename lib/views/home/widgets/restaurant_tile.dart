@@ -87,24 +87,27 @@ class RestaurantTile extends StatelessWidget {
               ),
             ),
             Positioned(
-                right: 5.w,
-                top: 6.h,
-                child: Container(
-                  width: 60.h,
-                  height: 19.h,
-                  decoration: BoxDecoration(
-                      color: restaurant['isAvailable'] == true ||
+              right: 5.w,
+              top: 6.h,
+              child: Container(
+                width: 60.h,
+                height: 19.h,
+                decoration: BoxDecoration(
+                    color: restaurant['isAvailable'] == true ||
+                            restaurant['isAvailable'] == null
+                        ? kPrimary
+                        : kSecondaryLight,
+                    borderRadius: BorderRadius.circular(10.r)),
+                child: Center(
+                  child: ReusableText(
+                      text: restaurant['isAvailable'] == true ||
                               restaurant['isAvailable'] == null
-                          ? kPrimary
-                          : kSecondaryLight,
-                      borderRadius: BorderRadius.circular(10.r)),
-                  child: Center(
-                    child: ReusableText(
-                        text: restaurant['isAvailable'] == true ||
-                              restaurant['isAvailable'] == null?"Open":"Closed",
-                        style: appStyle(12, kLightWhite, FontWeight.w600)),
-                  ),
-                ),)
+                          ? "Open"
+                          : "Closed",
+                      style: appStyle(12, kLightWhite, FontWeight.w600)),
+                ),
+              ),
+            )
           ],
         ));
   }
